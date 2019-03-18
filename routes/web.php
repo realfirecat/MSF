@@ -22,7 +22,5 @@ Route::post('/Upload', 'UploadController@upload');
 Route::get('/Dashboard', function () {
     return view('dashboard');
 });
-Route::get('/Flashcards', 'FlashcardsController@alleFlashcards');
-Route::post('/Flashcards', 'FlashcardsController@neueFlashcard');
-Route::delete('/Flashcards/{id}', 'FlashcardsController@loescheFlashcard');
-Route::update('/Flashcards/{id}', 'FlashcardsController@updateFlashcard');
+
+Route::resource('flashcards','FlashcardController');
