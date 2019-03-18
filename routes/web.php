@@ -25,7 +25,8 @@ Route::get('/Dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('json', function () {
+Route::get('flashcard', function () {
     $flashcards = Flashcard::all();
     return new FlashcardResource($flashcards);
 });
+
