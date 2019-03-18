@@ -1,5 +1,7 @@
 <?php
 
+use App\Flashcard;
+use App\Http\Resources\Flashcard as FlashcardResource;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +25,7 @@ Route::get('/Dashboard', function () {
     return view('dashboard');
 });
 
-Route::resource('flashcards','FlashcardController');
+Route::get('json', function () {
+    $flashcards = Flashcard::all();
+    return new FlashcardResource($flashcards);
+});
