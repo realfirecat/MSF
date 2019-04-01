@@ -1,0 +1,93 @@
+*{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    background-color: #eee;
+    color: #4E4E4E;
+    height: 100vh;
+}
+
+a{
+    text-decoration: none !important;
+    color: white;
+}
+
+a:hover{
+    color: white;
+}
+
+/* NAVIGATION */
+.navigation{
+    background-color: rgba(21,31,32,1);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 70px;
+}
+
+.navigation div a{
+    font-size: 14px;
+    font-weight: 600;
+    opacity: .9;
+    transition: .2s;
+}
+
+.navigation div a:hover{
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 1;
+}
+
+.button{
+    background-color: #f5593d;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+/* SECTION 1 */
+#section1 {
+    min-height: 100%;
+}
+
+.flashcards-page {
+    padding: 3%;
+}
+
+.btn-link {
+    color: #f5593d !important;
+}
+
+.flashcard-text {
+    border: 1px solid #4E4E4E;
+    border-radius: 10px;
+    padding: 30%;
+}
+
+.searchbar {
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+
+
+/* FOOTER */
+footer{
+    background-color: #0a1314;
+    position: relative;
+}
+
+.footer-text a{
+    color: rgba(255,255,255,.7) !important;
+    transition: .2s;
+}
+
+.footer-text a:hover{
+    cursor: default;
+    color: white !important;
+}
