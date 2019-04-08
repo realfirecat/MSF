@@ -22,10 +22,10 @@ Route::post('/Upload', 'UploadController@upload');
 
 /*Dashboard site*/
 Route::get('/Dashboard', function () {
-    return view('dashboard');
+    return view('flashcardsAnsehen');
 });
 
-Route::get('flashcard', function () {
+Route::get('flashcards', function () {
     $flashcards = Flashcard::all();
     return new FlashcardResource($flashcards);
 });
