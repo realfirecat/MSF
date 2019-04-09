@@ -25,7 +25,11 @@ Route::get('/Dashboard', function () {
     return view('flashcardsAnsehen');
 });
 
+<<<<<<< HEAD
 Route::get('/flashcards', function () {
+=======
+Route::get('flashcards', function () {
+>>>>>>> 324ba7cc2f6bcc867f4c97eba12f2f8afd2323a8
     $flashcards = Flashcard::all();
     return new FlashcardResource($flashcards);
 });

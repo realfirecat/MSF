@@ -10,3 +10,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .idea/
+pandoc/
+java/.idea
+java/settings.txt
+java/mysqlConnector

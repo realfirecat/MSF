@@ -1,30 +1,24 @@
-"use strict";
-
 $(document).ready(function() {
 
-    $(function() {
-        ajaxCall();
-    });
-
-    function ajaxCall(){
-        $.ajax({
-            type: 'post',
-            url: 'index.php',
-            data: {},
-            dataType: 'text',
-            contentType: false,
-            processData: false,
-            cache: false
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: 'get',
+        url: '/MSF/public/flashcards',
+        data: {},
+        processData: false,
+        contentType: false,
+    })
+        .done(function (json) {
+            for (let item of json.data) {
+                console.log(item.id, item.title, item.content);
+            }
         })
-            .done(function (msg) {
-                console.log("Successful: " + msg);
-            })
-            .fail(function (xhr, status, error) {
-                console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
-            });
+        .fail(function (xhr, status, error) {
+            console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+        });
 
-        console.log("gesendet");
-    }
-
+    console.log("gesendet");
 
 });

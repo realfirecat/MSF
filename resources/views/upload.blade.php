@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/flashcardsAnsehen.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+    <!--script src="js/bootstrap.js"></script-->
     <title>MSF</title>
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-
 <body>
 
 <div class="navigation">
@@ -28,10 +25,7 @@
     </div>
     <div class="nav-right mt-5">
         <a class="mr-4">LOGIN</a>
-        <!--a class="mr-4" data-toggle="modal" data-target=".bd-example-modal-sm">REGISTER</a-->
-        <a class="mr-4 popover-msf" href="#" data-toggle="popover" title="Register" data-placement="bottom"
-           data-trigger="focus"
-           data-html="true">REGISTER</a>
+        <a class="mr-4">REGISTER</a>
         <a class="button" href="#section4">CONVERT NOW</a>
     </div>
 </div>
@@ -39,7 +33,7 @@
 <div id="section1" class="landing-page">
     <div class="text-center-div text-center">
         <h1>Mitschrift Flashcards</h1>
-        <h2>The easiest way to convert your own notes <br> into easy learnable Flashcards.</h2>
+        <h2>The easiest way to convert your own Notes <br> into easy learnable Flashcards.</h2>
         <div class="text-center mt-5">
             <a class="button landing-button" href="#section3">READ INSTRUCTIONS</a>
         </div>
@@ -52,7 +46,7 @@
             <div class="info-block col-lg-4 text-center">
                 <i class="fas fa-file-upload mt-3"></i>
                 <h4 class="mt-4">Easy File Upload</h4>
-                <p>Just upload your own notes by following the instructions and dragging them into the upload section
+                <p>Just upload your own Notes by following the instructions and dragging them into the upload section
                     below.</p>
             </div>
             <div class="info-block col-lg-4 text-center">
@@ -161,59 +155,6 @@
         <a>© 2018 Copyright: Mitschrift Flashcards</a>
     </div>
 </footer>
-
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Register</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="/action_page.php">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Username">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Register</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(document).ready(function () {
-
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
-
-        var register = '<div class="modal-body">\n' +
-            '                <form action="/action_page.php">\n' +
-            '                    <div class="input-group mb-3">\n' +
-            '                        <div class="input-group-prepend">\n' +
-            '                            <span class="input-group-text">@</span>\n' +
-            '                        </div>\n' +
-            '                        <input type="text" class="form-control" placeholder="Username">\n' +
-            '                    </div>\n' +
-            '                    <button type="submit" class="btn btn-primary">Register</button>\n' +
-            '                </form>\n' +
-            '            </div>';
-
-        $('.popover-msf').popover({
-            container: 'body',
-            html: true,
-            content: register
-        })
-    })
-</script>
-
 
 </body>
 </html>

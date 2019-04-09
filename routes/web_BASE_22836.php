@@ -18,14 +18,14 @@ use App\Http\Resources\Flashcard as FlashcardResource;
 Route::get('/Upload', function () {
     return view('upload');
 });
-Route::post('/UploadFile', 'UploadController@upload');
+Route::post('/Upload', 'UploadController@upload');
 
 /*Dashboard site*/
 Route::get('/Dashboard', function () {
-    return view('flashcardsAnsehen');
+    return view('dashboard');
 });
 
-Route::get('/flashcards', function () {
+Route::get('flashcard', function () {
     $flashcards = Flashcard::all();
     return new FlashcardResource($flashcards);
 });

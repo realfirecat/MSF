@@ -1,0 +1,58 @@
+<<<<<<< HEAD
+$(document).ready(function() {
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: 'get',
+        url: '/MSF/public/flashcards',
+        data: {},
+        processData: false,
+        contentType: false,
+    })
+        .done(function (json) {
+
+            for (let item of json.data) {
+                console.log(item.id, item.title, item.content);
+            }
+        })
+        .fail(function (xhr, status, error) {
+            console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+        });
+
+    console.log("gesendet");
+
+});
+=======
+"use strict";
+
+$(document).ready(function() {
+
+    $(function() {
+        ajaxCall();
+    });
+
+    function ajaxCall(){
+        $.ajax({
+            type: 'post',
+            url: 'index.php',
+            data: {},
+            dataType: 'text',
+            contentType: false,
+            processData: false,
+            cache: false
+        })
+            .done(function (msg) {
+                console.log("Successful: " + msg);
+            })
+            .fail(function (xhr, status, error) {
+                console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+            });
+
+        console.log("gesendet");
+    }
+
+
+});
+>>>>>>> 324ba7cc2f6bcc867f4c97eba12f2f8afd2323a8
