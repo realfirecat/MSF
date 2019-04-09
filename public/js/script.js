@@ -55,7 +55,7 @@ $(document).ready(function() {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 type: 'post',
-                url: 'UploadFile',
+                url: 'api/UploadFile',
                 data: fd,
                 processData: false,
                 contentType: false,
@@ -69,4 +69,54 @@ $(document).ready(function() {
 
             console.log("gesendet");
         }
+
+
+    function register() {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'post',
+            url: 'api/Register',
+            data: {},
+            processData: false,
+            contentType: false,
+        })
+            .done(function (msg) {
+                console.log("Successful: " + msg);
+            })
+            .fail(function (xhr, status, error) {
+                console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+            });
+
+        console.log("gesendet");
+    }
+
+    function login(token) {
+            let data = { 'token': token };
+        $.ajax({
+            headers: {
+                "Content-Type": "application/json",
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                "Accept": "application/json"
+            },
+            type: 'post',
+            url: 'api/Login',
+            data: JSON.stringify(data),
+            processData: false,
+            contentType: false,
+        })
+            .done(function (msg) {
+                console.log("Successful: " + msg);
+            })
+            .fail(function (xhr, status, error) {
+                console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+            });
+
+        console.log("gesendet");
+    }
+
+        register();
+        login("123");
+
     });

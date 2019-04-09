@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Flashcard;
+use App\Http\Resources\Flashcard as FlashcardResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+/*Upload*/
+Route::post('/UploadFile', 'UploadController@upload');
+
+/*Dashboard*/
+Route::get('/flashcards', function () {
+    $flashcards = Flashcard::all();
+    return new FlashcardResource($flashcards);
 });
+
+/*Register*/
+Route::post('/Register', 'AuthController@register');
+
+/*Login*/
+Route::post('/Login', 'AuthController@login');

@@ -5,7 +5,7 @@ $(document).ready(function() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         type: 'get',
-        url: '/MSF/public/flashcards',
+        url: 'api/flashcards',
         data: {},
         processData: false,
         contentType: false,
