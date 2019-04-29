@@ -71,14 +71,19 @@ $(document).ready(function() {
         }
 
 
-    function register() {
+    function register(username) {
+            let data = {
+                'username': username
+            };
         $.ajax({
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                "Content-Type": "application/json",
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                "Accept": "application/json"
             },
             type: 'post',
             url: 'api/Register',
-            data: {},
+            data: JSON.stringify(data),
             processData: false,
             contentType: false,
         })
@@ -93,7 +98,7 @@ $(document).ready(function() {
     }
 
     function login(token) {
-            let data = { 'token': token };
+            let data = { 'loginToken': token };
         $.ajax({
             headers: {
                 "Content-Type": "application/json",
@@ -116,7 +121,7 @@ $(document).ready(function() {
         console.log("gesendet");
     }
 
-        register();
-        login("123");
+        //register("Emil");
+        login("d611b3a6316247d0d3b8e448972b787f");
 
     });

@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        factory(App\Thema::class, 50)->create();
+        factory(App\User::class, 50)->create();
         factory(App\Flashcard::class, 50)->create();
     }
 }

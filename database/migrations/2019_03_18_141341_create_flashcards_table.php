@@ -17,6 +17,10 @@ class CreateFlashcardsTable extends Migration
             $table->bigIncrements('id')->unique();
             $table->string('title');
             $table->string('content');
+            $table->unsignedBigInteger('fk_userID');
+            $table->unsignedBigInteger('fk_themaID');
+            $table->foreign('fk_userID')->references('id')->on('user');
+            $table->foreign('fk_themaID')->references('id')->on('thema');
             $table->timestamps();
         });
     }
