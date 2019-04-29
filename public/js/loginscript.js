@@ -9,7 +9,7 @@ $(document).ready(function() {
 
         einloggen(token);
 
-        fetch('')
+        fetch('api/Login')
             .then(function (response) {
                 console.log(JSON.stringify(response.json()));
                 localStorage.setItem("logintoken", token);
@@ -22,8 +22,8 @@ $(document).ready(function() {
     function einloggen(data) {
         $.ajax({
             type: 'post',
-            url: 'index.php',
-            data: {'token': data},
+            url: 'api/Login',
+            data: {'loginToken': data},
             dataType: 'json',
             contentType: false,
             processData: false,
