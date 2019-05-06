@@ -33,9 +33,13 @@
 
 <div id="section1" class="container flashcards-page">
     <h1 class="text-center">Flashcards</h1>
-    <div class="searchbar form-group has-search">
+    <div class="searchbar form-group has-search input-group">
         <input type="text" class="form-control" placeholder="Kategorie suchen...">
+        <div class="input-group-append">
+            <a class="input-group-text" id="random-input"><i class="fas fa-random"></i></a>
+        </div>
     </div>
+
     <div class="accordion" id="accordion">
         <div class="card">
             <div class="kategorie card-header" id="headingOne">

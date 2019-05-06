@@ -54,7 +54,6 @@ $(document).ready(function() {
         'token': 'abc'
     };
 
-
     $.ajax({
         headers: {
             "Content-Type": "application/json",
@@ -74,4 +73,8 @@ $(document).ready(function() {
             console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
         });
 
+
+    $('#random-input').on('click', function (e) {
+        console.log('test');
+    });
 });
