@@ -16,7 +16,16 @@
             crossorigin="anonymous"></script>
     <script src="{{ asset('js/script.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="{{ asset('js/loginscript.js') }}"></script>
 </head>
+
 <body>
 
 <div class="navigation">
@@ -24,8 +33,8 @@
         <a>MITSCHRIFT FLASHCARDS</a>
     </div>
     <div class="nav-right mt-5">
-        <a class="mr-4">LOGIN</a>
-        <a class="mr-4">REGISTER</a>
+        <a class="mr-4" data-toggle="modal" data-target="#mod-log">LOGIN</a>
+        <a class="mr-4" data-toggle="modal" data-target="#mod-reg">REGISTER</a>
         <a class="button" href="#section4">CONVERT NOW</a>
     </div>
 </div>
@@ -33,7 +42,7 @@
 <div id="section1" class="landing-page">
     <div class="text-center-div text-center">
         <h1>Mitschrift Flashcards</h1>
-        <h2>The easiest way to convert your own Notes <br> into easy learnable Flashcards.</h2>
+        <h2>The easiest way to convert your own notes <br> into easy learnable Flashcards.</h2>
         <div class="text-center mt-5">
             <a class="button landing-button" href="#section3">READ INSTRUCTIONS</a>
         </div>
@@ -46,7 +55,7 @@
             <div class="info-block col-lg-4 text-center">
                 <i class="fas fa-file-upload mt-3"></i>
                 <h4 class="mt-4">Easy File Upload</h4>
-                <p>Just upload your own Notes by following the instructions and dragging them into the upload section
+                <p>Just upload your own notes by following the instructions and dragging them into the upload section
                     below.</p>
             </div>
             <div class="info-block col-lg-4 text-center">
@@ -152,9 +161,59 @@
 
 <footer>
     <div class="text-center p-3 footer-text">
-        <a>© 2018 Copyright: Mitschrift Flashcards</a>
+        <a>� 2018 Copyright: Mitschrift Flashcards</a>
     </div>
 </footer>
+
+<div id="mod-reg" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="return false;">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" id="registerUsername">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="registerButton">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mod-log" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="return false;">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Token" id="token">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="loginbutton">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

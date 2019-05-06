@@ -41,21 +41,20 @@ $(document).ready(function() {
 
                 fd.append('file', file[0]);
 
-                uploadData(fd);
+                uploadData(fd, '92f78caf010a8cfbe292cebf873e7f12');
             });
-
 
         });
 
 // Sending AJAX request and upload file
-        function uploadData(fd) {
+        function uploadData(fd, token) {
             console.log(fd);
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 type: 'post',
-                url: 'api/UploadFile',
+                url: 'api/UploadFile?token='+token,
                 data: fd,
                 processData: false,
                 contentType: false,
@@ -70,8 +69,15 @@ $(document).ready(function() {
             console.log("gesendet");
         }
 
+    $("#registerButton").on("click", function() {
 
-    function register(username) {
+        let username = $("#registerUsername").val();
+
+        console.log(username);
+        register(username);
+    });
+
+        function register(username) {
             let data = {
                 'username': username
             };
@@ -97,7 +103,7 @@ $(document).ready(function() {
         console.log("gesendet");
     }
 
-    function login(token) {
+  /*  function login(token) {
             let data = { 'loginToken': token };
         $.ajax({
             headers: {
@@ -119,9 +125,9 @@ $(document).ready(function() {
             });
 
         console.log("gesendet");
-    }
+    }*/
 
-        //register("Emil");
-        login("d611b3a6316247d0d3b8e448972b787f");
+
+        //login("64124ae6386b78524db65450f3cab2be");
 
     });

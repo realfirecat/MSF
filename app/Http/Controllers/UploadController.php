@@ -9,9 +9,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UploadController extends Controller {
     function upload(){
+        $id = DB::table('user')
+            ->where([
+                'token' => $_GET['token']
+            ])
+            ->value('id');
 
         try {
 
@@ -42,19 +49,36 @@ END;
                     $javaProgram = 'Main';
                     $classPath = '.;D:\Programme\xampp\htdocs\MSF\java\mysqlConnector\mysql-connector-java-8.0.11.jar';
                     $cmd = <<<END
-cd $prorammPath && java -cp "$classPath" $javaProgram $output
+cd $prorammPath && java -cp "$classPath" $javaProgram $output $id
 END;
-                    var_dump($cmd);
-                    exec($cmd);
+                    if ($id == null) {
+                        echo json_encode(['valid' => false]);
+                    } else {
+                        exec($cmd);
+                        echo json_encode(['valid' => true]);
+                    }
                 }else{
-                    //Failure
+                    echo json_encode(['valid' => false]);
                 }
-
             }
-
         } catch (\Exception $exception) {
             var_dump($exception);
         }
 
+
+        $myFile = public_path('uploads/' . $_FILES['file']['name']);
+        $myFileLink = fopen($myFile, 'w');
+        fclose($myFileLink);
+        $myFile = public_path('uploads/' . $_FILES['file']['name']);
+        unlink($myFile);
+
+
+        $myFile = 'D:\Programme\xampp\htdocs\MSF\public\uploads\\'.$_FILES['file']['name'].'.html';
+        $myFileLink = fopen($myFile, 'w');
+        fclose($myFileLink);
+        $myFile = 'D:\Programme\xampp\htdocs\MSF\public\uploads\\'.$_FILES['file']['name'].'.html';
+        unlink($myFile);
     }
+
+
 }
