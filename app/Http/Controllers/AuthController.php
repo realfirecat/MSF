@@ -12,7 +12,7 @@ class AuthController extends Controller
         $input = json_decode($inputJSON, TRUE); //convert JSON into array
         $token = md5(rand(1,10) . microtime());
         header('Content-Type: application/json');
-        DB::table('user')->insert([
+        DB::table('users')->insert([
             'token' => $token,
             'username' => $input['username']
         ]);
@@ -22,7 +22,7 @@ class AuthController extends Controller
     public function login(){
         $inputJSON = file_get_contents('php://input');
         $input = json_decode($inputJSON, TRUE); //convert JSON into array
-        $isTokenValid = DB::table('user')
+        $isTokenValid = DB::table('users')
             ->where([
                 'token' => $input['loginToken']
             ])->exists();

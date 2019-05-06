@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UploadController extends Controller {
     function upload(){
-        $id = DB::table('user')
+        $id = DB::table('users')
             ->where([
                 'token' => $_GET['token']
             ])
