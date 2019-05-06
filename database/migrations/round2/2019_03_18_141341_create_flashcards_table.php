@@ -20,7 +20,7 @@ class CreateFlashcardsTable extends Migration
             $table->unsignedBigInteger('fk_userID');
             $table->unsignedBigInteger('fk_themaID');
             $table->foreign('fk_userID')->references('id')->on('user');
-            $table->foreign('fk_themaID')->references('id')->on('thema');
+            $table->foreign('fk_themaID')->references('id')->on('themas');
             $table->timestamps();
         });
     }
