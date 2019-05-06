@@ -63,6 +63,17 @@ $(document).ready(function() {
         insertIntoContainer(allFlashcards);
     });
 
+    $('#searchbox').on('keyup', function (e) {
+        let searchbox = document.querySelector('#searchbox');
+        let bufferArray = [];
+        for (let item of allFlashcards) {
+            if (item.title.toLowerCase().includes(searchbox.value.toLowerCase()) || item.content.toLowerCase().includes(searchbox.value.toLowerCase())) {
+                bufferArray.push(item);
+            }
+        }
+        insertIntoContainer(bufferArray);
+    });
+
     function getContent(title, id, content){
         return "  <div class=\"col-md-3 flashcard\">\n" +
             "                        <div class=\"flashcard-text mb-3 text-center\" data-toggle=\"modal\" data-target=\"#fc" + id + "_content\">\n" +
