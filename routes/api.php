@@ -19,9 +19,21 @@ use App\Http\Resources\Flashcard as FlashcardResource;
 Route::post('/UploadFile', 'UploadController@upload');
 
 /*Dashboard*/
-Route::get('/flashcards', function () {
-    $flashcards = Flashcard::all();
-    return new FlashcardResource($flashcards);
+Route::post('/flashcards', function () {
+    $inputJSON = file_get_contents('php://input');
+    $input = json_decode($inputJSON, TRUE); //convert JSON into array
+    $id = \Illuminate\Support\Facades\DB::table('user')
+        ->where([
+            'token' => $input['token']
+        ])
+        ->value('id');
+    return new FlashcardResource(\Illuminate\Support\Facades\DB::table('flashcards')
+    ->where([
+        'fk_userID' => $id
+    ])
+    ->get());
+
+    return new FlashcardResource(Flashcard::find(['fk_userID' => $id]));
 });
 
 /*Register*/

@@ -1,17 +1,22 @@
 $(document).ready(function() {
+    let data = {
+        'token': 'xyz'
+    };
+
     $.ajax({
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            "Content-Type": "application/json",
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            "Accept": "application/json"
         },
-        type: 'get',
+        type: 'post',
         url: 'api/flashcards',
-        data: {},
+        data: JSON.stringify(data),
         processData: false,
         contentType: false,
     })
         .done(function (json) {
             let container = document.querySelector('#collapseOne .row');
-            console.log(container);
             for (let item of json.data) {
                 container.innerHTML += "  <div class=\"col-md-3 flashcard\">\n" +
                     "                        <div class=\"flashcard-text mb-3 text-center\" data-toggle=\"modal\" data-target=\"#fc" + item.id + "_content\">\n" +
@@ -35,12 +40,10 @@ $(document).ready(function() {
                     "                    </div>";
 
 
-                console.log(item.id, item.title, item.content);
             }
         })
         .fail(function (xhr, status, error) {
             console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
         });
 
-    console.log("gesendet");
 });
