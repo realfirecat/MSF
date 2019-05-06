@@ -1,6 +1,6 @@
 $(document).ready(function() {
     let data = {
-        'token': 'xyz'
+        'token': 'abc'
     };
 
     $.ajax({
@@ -16,6 +16,7 @@ $(document).ready(function() {
         contentType: false,
     })
         .done(function (json) {
+            console.log(json);
             let container = document.querySelector('#collapseOne .row');
             for (let item of json.data) {
                 container.innerHTML += "  <div class=\"col-md-3 flashcard\">\n" +

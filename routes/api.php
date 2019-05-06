@@ -28,6 +28,7 @@ Route::post('/flashcards', function () {
         ])
         ->value('id');
     return new FlashcardResource(\Illuminate\Support\Facades\DB::table('flashcards')
+        ->join('thema','flashcards.fk_themaID','=','thema.id')
     ->where([
         'fk_userID' => $id
     ])
