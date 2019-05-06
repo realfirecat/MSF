@@ -42,3 +42,15 @@ Route::post('/Register', 'AuthController@register');
 
 /*Login*/
 Route::post('/Login', 'AuthController@login');
+
+/*name*/
+Route::post('/name', function () {
+    $inputJSON = file_get_contents('php://input');
+    $input = json_decode($inputJSON, true); //convert JSON into array
+    $name = \Illuminate\Support\Facades\DB::table('user')
+        ->where([
+            'token' => $input['token']
+        ])
+        ->value('username');
+    return json_encode(['username' => $name]);
+});

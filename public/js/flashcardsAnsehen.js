@@ -47,4 +47,31 @@ $(document).ready(function() {
             console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
         });
 
+
+
+
+    data = {
+        'token': 'abc'
+    };
+
+
+    $.ajax({
+        headers: {
+            "Content-Type": "application/json",
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            "Accept": "application/json"
+        },
+        type: 'post',
+        url: 'api/name',
+        data: JSON.stringify(data),
+        processData: false,
+        contentType: false,
+    })
+        .done(function (json) {
+            console.log(json);
+        })
+        .fail(function (xhr, status, error) {
+            console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+        });
+
 });
