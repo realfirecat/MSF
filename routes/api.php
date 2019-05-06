@@ -33,8 +33,6 @@ Route::post('/flashcards', function () {
         'fk_userID' => $id
     ])
     ->get());
-
-    return new FlashcardResource(Flashcard::find(['fk_userID' => $id]));
 });
 
 /*Register*/
