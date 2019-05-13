@@ -2,6 +2,8 @@
 
 $(document).ready(function() {
 
+    let keytoken = 'loginToken';
+
     $(function () {
             // preventing page from redirecting
             $("html").on("dragover", function (e) {
@@ -41,7 +43,7 @@ $(document).ready(function() {
 
                 fd.append('file', file[0]);
 
-                uploadData(fd, '92f78caf010a8cfbe292cebf873e7f12');
+                uploadData(fd, sessionStorage.getItem(keytoken));
             });
 
         });
@@ -49,6 +51,12 @@ $(document).ready(function() {
 // Sending AJAX request and upload file
         function uploadData(fd, token) {
             console.log(fd);
+            console.log(token);
+
+            if(token === null) {
+                return;
+            }
+
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

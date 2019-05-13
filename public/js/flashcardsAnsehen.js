@@ -1,6 +1,20 @@
+let keytoken = 'loginToken';
+
+if(sessionStorage.getItem(keytoken) === null) {
+    window.location.href = "/MSF/public/Upload";
+}
+
 $(document).ready(function() {
+
+    $('#logoutbutton').click(function() {
+        console.log('test');
+        sessionStorage.removeItem(keytoken);
+        console.log(sessionStorage.getItem(keytoken));
+        window.location.href = "/MSF/public/Upload";
+    });
+
     let data = {
-        'token': '6VCyVTsl6ltrYOOjavEm'
+        'token': sessionStorage.getItem(keytoken)
     };
 
     let allFlashcards = [];
@@ -40,7 +54,7 @@ $(document).ready(function() {
         contentType: false,
     })
         .done(function (json) {
-            console.log(json);
+            document.querySelector('#username').innerHTML=JSON.parse(json).username;
         })
         .fail(function (xhr, status, error) {
             console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
@@ -96,8 +110,26 @@ $(document).ready(function() {
             "                    </div>"
     }
 
+    function getCategoryContent(catTitle, modals, categoryId) {
+        return "<div class=\"card\">\n" +
+            "        <div class=\"kategorie card-header\" id=\"headingOne\">\n" +
+            "            <h5 class=\"mb-0\">\n" +
+            "                <button class=\"btn btn-link\" id=\"kat"+categoryId+"\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapse"+categoryId+"\" aria-expanded=\"true\" aria-controls=\"collapse"+categoryId+"\">\n" +
+            catTitle +
+            "                </button>\n" +
+            "            </h5>\n" +
+            "        </div>\n" +
+            "        <div id=\"collapse"+categoryId+"\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n" +
+            "            <div class=\"row p-5\">\n" +
+            modals +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>";
+    }
+
     function insertIntoContainer(array){
-        let container = document.querySelector('#collapseOne .row');
+        let categories = getCategories(array);
+        let container = document.querySelector('#accordion');
         container.innerHTML="";
         array.sort(function (a,b) {
             if (a.isFavorite) {
@@ -105,10 +137,26 @@ $(document).ready(function() {
             }
             return 1;
         });
-        for (let item of array) {
-            container.innerHTML += getContent(item.title, item.id, item.content, item.isFavorite);
+
+        let categoryId=1;
+        for (let item of categories) {
+            let contentModlas = "";
+            let content = "";
+            for (let item2 of array) {
+                if (item2.description===item) contentModlas+=getContent(item2.title, item2.id, item2.content, item2.isFavorite);
+            }
+            content = getCategoryContent(item, contentModlas, categoryId++);
+            container.innerHTML += content;
         }
         addIconEventListener();
+    }
+
+    function getCategories(array){
+        let cat = [];
+        for (let item of array) {
+            if (!cat.includes(item.description)) cat.push(item.description)
+        }
+        return cat;
     }
 
     function addIconEventListener() {
@@ -128,8 +176,8 @@ $(document).ready(function() {
             icons[i].addEventListener('click', function () {
 
                 let data = {
-                  'token': '6VCyVTsl6ltrYOOjavEm',
-                   'flashcardId': icons[i].id
+                    'token': sessionStorage.getItem(keytoken),
+                    'flashcardId': icons[i].id
                 };
 
                 $.ajax({
@@ -158,13 +206,18 @@ $(document).ready(function() {
                         Karte schließen
                         insertIntoContainer(allFlashcards);
                         */
+
+
                     })
                     .fail(function (xhr, status, error) {
                         console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
                     });
-
             })
         }
     }
 
 });
+
+
+
+

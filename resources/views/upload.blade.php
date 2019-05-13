@@ -35,7 +35,7 @@
     <div class="nav-right mt-5">
         <a class="mr-4" data-toggle="modal" data-target="#mod-log">LOGIN</a>
         <a class="mr-4" data-toggle="modal" data-target="#mod-reg">REGISTER</a>
-        <a class="button" href="#section4">CONVERT NOW</a>
+        <a class="button" href="#section4">Upload file</a>
     </div>
 </div>
 

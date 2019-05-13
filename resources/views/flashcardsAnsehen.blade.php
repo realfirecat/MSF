@@ -20,13 +20,22 @@
 </head>
 <body>
 
+
 <div class="navigation">
     <div class="nav-left mt-4">
         <a>MITSCHRIFT FLASHCARDS</a>
     </div>
     <div class="nav-right mt-4">
-        <a class="button mr-3" href="#section4">CONVERT NOW</a>
-        <a class="mr-2">Username</a>
+        <a class="button mr-3" href="http://localhost/MSF/public/Upload">Upload</a>
+        <a class="mr2 dropdown">
+            <a id="username" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Username
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">Dashboard</a>
+                <a class="dropdown-item" id="logoutbutton">Logout</a>
+            </div>
+        </a>
     </div>
 </div>
 
@@ -42,132 +51,9 @@
 
 
 
-<div class="accordion" id="accordion">
-    <div class="card">
-        <div class="kategorie card-header" id="headingOne">
-            <h5 class="mb-0">
-                <button class="btn btn-link" id="kat1" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Kategorie 1
-                </button>
-            </h5>
-        </div>
+    <div class="accordion" id="accordion">
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="row p-5">
-            </div>
-        </div>
     </div>
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Kategorie 2
-                </button>
-            </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="row p-5">
-                <div class="col-md-3 flashcard">
-                    <div id="fc2" class="flashcard-text text-center" data-toggle="modal" data-target="#fc2_content">
-                        Flashcard 1
-                    </div>
-                    <div id="fc2_content" class="modal fade bd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="ModalLongTitle2">Kategorie 2 - Flashcard 1</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 flashcard">
-                    <div class="flashcard-text text-center">
-                        Flashcard 2
-                    </div>
-                </div>
-                <div class="col-md-3 flashcard">
-                    <div class="flashcard-text text-center">
-                        Flashcard 3
-                    </div>
-                </div>
-                <div class="col-md-3 flashcard">
-                    <div class="flashcard-text text-center">
-                        Flashcard 4
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Kategorie 3
-                </button>
-            </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="row p-5">
-                <div class="col-md-3 flashcard">
-                    <div id="fc3" class="flashcard-text text-center" data-toggle="modal" data-target="#fc3_content">
-                        Flashcard 1
-                    </div>
-                    <div id="fc3_content" class="modal fade bd-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="ModalLongTitle3">Kategorie 3 - Flashcard 1</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 flashcard">
-                    <div class="flashcard-text text-center">
-                        Flashcard 2
-                    </div>
-                </div>
-                <div class="col-md-3 flashcard">
-                    <div class="flashcard-text text-center">
-                        Flashcard 3
-                    </div>
-                </div>
-                <div class="col-md-3 flashcard">
-                    <div class="flashcard-text text-center">
-                        Flashcard 4
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 
 <footer class="align-bottom">

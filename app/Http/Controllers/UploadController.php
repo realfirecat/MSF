@@ -79,6 +79,4 @@ END;
         $myFile = 'D:\Programme\xampp\htdocs\MSF\public\uploads\\'.$_FILES['file']['name'].'.html';
         unlink($myFile);
     }
-
-
 }
