@@ -14,7 +14,6 @@
 
 /*Upload site*/
 Route::get('/Upload', function () {
-    header('Content-Security-Policy: default-src *');
     return view('upload');
 });
 
