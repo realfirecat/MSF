@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src *; media-src media1.com media2.com; script-src http://10.14.72.136">
+    <meta http-equiv="Content-Security-Policy" content="default-src http://10.14.72.136; img-src http://10.14.72.136; media-src http://10.14.72.136; script-src http://10.14.72.136">
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
