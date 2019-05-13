@@ -7,9 +7,7 @@ if(sessionStorage.getItem(keytoken) === null) {
 $(document).ready(function() {
 
     $('#logoutbutton').click(function() {
-        console.log('test');
         sessionStorage.removeItem(keytoken);
-        console.log(sessionStorage.getItem(keytoken));
         window.location.href = "/MSF/public/Upload";
     });
 
@@ -38,7 +36,7 @@ $(document).ready(function() {
             }
         })
         .fail(function (xhr, status, error) {
-            console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+            swal('Error!','','error');
         });
 
     $.ajax({
@@ -57,7 +55,7 @@ $(document).ready(function() {
             document.querySelector('#username').innerHTML=JSON.parse(json).username;
         })
         .fail(function (xhr, status, error) {
-            console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+            swal('Error!','','error');
         });
 
 
@@ -194,7 +192,6 @@ $(document).ready(function() {
                 })
                     .done(function (json) {
                         json = JSON.parse(json);
-                        console.log(json);
                         icons[i].classList.remove('fas','far','fa-heart');
                         if (json.newStatus) {
                             icons[i].classList.add('fas', 'fa-heart');
@@ -210,7 +207,7 @@ $(document).ready(function() {
 
                     })
                     .fail(function (xhr, status, error) {
-                        console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+                        swal('Error!','','error');
                     });
             })
         }
