@@ -79,6 +79,21 @@ a:hover{
 }
 
 
+/* PFEILE */
+.pfeile{
+    color: white;
+    font-size: 5em;
+    margin: 2%;
+}
+
+#pfeilrechts{
+
+}
+
+
+#pfeillinks{
+
+}
 
 /* FOOTER */
 footer{

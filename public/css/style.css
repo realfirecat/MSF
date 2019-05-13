@@ -257,3 +257,8 @@ footer{
     cursor: default;
     color: white !important;
 }
+
+#footerclass{
+    display: flex;
+    flex-direction: column;
+}
