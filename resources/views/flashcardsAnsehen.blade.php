@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src *; media-src media1.com media2.com; script-src http://10.14.72.136">
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
@@ -9,7 +10,7 @@
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     {{--<script src="../../resources/js/bootstrap.js"></script>--}}
     <script
-            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
