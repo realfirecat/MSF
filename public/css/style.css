@@ -21,6 +21,14 @@ a:hover{
     background-color: #f5593d;
 }
 
+.orange-link{
+    color: #f5593d !important;
+}
+
+.orange-link:hover{
+    border-bottom: 1px solid #f5593d;
+}
+
 /* OVER ALL CLASSES*/
 .button{
     background-color: #f5593d;
@@ -36,6 +44,22 @@ a:hover{
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .navigation{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-center-div h1{
+        font-size: 3em !important;
+    }
+
+    .text-center-div h2{
+        font-size: 1em !important;
+    }
 }
 
 .navigation div a{

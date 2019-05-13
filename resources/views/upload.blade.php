@@ -79,6 +79,7 @@
     <div class="header-text-instructions text-center pt-5">
         <h2>Instructions for file upload</h2>
         <p>Here you can find all the informations your need to upload your files correctly.</p>
+        <a class="orange-link" href="DownloadFile1/" download>Download Template File</a>
     </div>
     <div class="rules mt-5 mb-5">
         <div class="container">
