@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline' code.jquery.com 'unsafe-inline' cdnjs.cloudflare.com 'unsafe-inline' stackpath.bootstrapcdn.com 'unsafe-inline' unpkg.com 'unsafe-inline';">
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
