@@ -74,6 +74,10 @@ a:hover{
     margin-bottom: 3%;
 }
 
+.card{
+    cursor: pointer;
+}
+
 
 
 /* FOOTER */

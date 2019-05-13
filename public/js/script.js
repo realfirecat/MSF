@@ -2,6 +2,8 @@
 
 $(document).ready(function() {
 
+    let keytoken = 'loginToken';
+
     $(function () {
             // preventing page from redirecting
             $("html").on("dragover", function (e) {
@@ -41,14 +43,18 @@ $(document).ready(function() {
 
                 fd.append('file', file[0]);
 
-                uploadData(fd, '92f78caf010a8cfbe292cebf873e7f12');
+                uploadData(fd, sessionStorage.getItem(keytoken));
             });
 
         });
 
 // Sending AJAX request and upload file
         function uploadData(fd, token) {
-            console.log(fd);
+
+            if(token === null) {
+                return;
+            }
+
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -60,20 +66,23 @@ $(document).ready(function() {
                 contentType: false,
             })
                 .done(function (msg) {
-                    console.log("Successful: " + msg);
+                    msg = JSON.parse(msg);
+                    if (msg.valid) {
+                        swal('File uploaded!','','success');
+                    } else {
+                        swal('Error!','','error');
+                    }
                 })
                 .fail(function (xhr, status, error) {
-                    console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+                    swal('Error!','','error');
                 });
 
-            console.log("gesendet");
         }
 
     $("#registerButton").on("click", function() {
 
         let username = $("#registerUsername").val();
 
-        console.log(username);
         register(username);
     });
 
@@ -94,40 +103,16 @@ $(document).ready(function() {
             contentType: false,
         })
             .done(function (msg) {
-                console.log("Successful: " + msg);
+                if (msg.valid) {
+                    swal('Registered!','','success');
+                } else {
+                    swal('Error!','','error');
+                }
             })
             .fail(function (xhr, status, error) {
-                console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+                swal('Error!','','error');
             });
 
-        console.log("gesendet");
     }
-
-  /*  function login(token) {
-            let data = { 'loginToken': token };
-        $.ajax({
-            headers: {
-                "Content-Type": "application/json",
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                "Accept": "application/json"
-            },
-            type: 'post',
-            url: 'api/Login',
-            data: JSON.stringify(data),
-            processData: false,
-            contentType: false,
-        })
-            .done(function (msg) {
-                console.log("Successful: " + msg);
-            })
-            .fail(function (xhr, status, error) {
-                console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
-            });
-
-        console.log("gesendet");
-    }*/
-
-
-        //login("64124ae6386b78524db65450f3cab2be");
 
     });

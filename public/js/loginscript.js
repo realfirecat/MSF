@@ -1,24 +1,17 @@
 "use strict";
 
 $(document).ready(function() {
-    console.log("yes");
+
+    let keytoken = 'loginToken';
+
 
     $("#loginbutton").on("click", function() {
 
         let token = $("#token").val();
 
-        console.log(token);
 
         einloggen(token);
 
-        /*fetch('api/Login')
-            .then(function (response) {
-                console.log(JSON.stringify(response.json()));
-                localStorage.setItem("logintoken", token);
-            })
-            .catch(function(error) {
-                console.error(error);
-            })*/
     });
 
     function einloggen(token) {
@@ -40,11 +33,13 @@ $(document).ready(function() {
             cache: false
         })
             .done(function (msg) {
-                console.log("Successful: " + msg.valid);
-                if (msg.valid) window.location.href = "/MSF/public/Dashboard";
-            })
+                if (msg.valid) {
+                    sessionStorage.setItem(keytoken, token);
+                    window.location.href = "/MSF/public/Dashboard";
+                }
+                })
             .fail(function (xhr, status, error) {
-                console.log("Failed: " + xhr + " ___ " + status + " ___ " + error);
+                swal('Error!','','error');
             });
     }
 

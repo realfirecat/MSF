@@ -22,3 +22,7 @@ Route::get('/Dashboard', function () {
     return view('flashcardsAnsehen');
 });
 
+/*Download site*/
+Route::get('/DownloadFile1', function () {
+    return response()->download(resource_path('views\documents\MSF_Template.docx'));
+});

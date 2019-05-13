@@ -23,6 +23,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('js/loginscript.js') }}"></script>
 </head>
 
@@ -35,7 +36,7 @@
     <div class="nav-right mt-5">
         <a class="mr-4" data-toggle="modal" data-target="#mod-log">LOGIN</a>
         <a class="mr-4" data-toggle="modal" data-target="#mod-reg">REGISTER</a>
-        <a class="button" href="#section4">CONVERT NOW</a>
+        <a class="button" href="#section4">Upload file</a>
     </div>
 </div>
 
@@ -78,6 +79,7 @@
     <div class="header-text-instructions text-center pt-5">
         <h2>Instructions for file upload</h2>
         <p>Here you can find all the informations your need to upload your files correctly.</p>
+        <a class="orange-link" href="DownloadFile1/" download>Download Template File</a>
     </div>
     <div class="rules mt-5 mb-5">
         <div class="container">

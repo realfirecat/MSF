@@ -13,7 +13,7 @@ class CreateThemaTable extends Migration
      */
     public function up()
     {
-        Schema::create('thema', function (Blueprint $table) {
+        Schema::create('themas', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
             $table->string('description');
         });

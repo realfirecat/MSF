@@ -22,19 +22,24 @@ Route::post('/UploadFile', 'UploadController@upload');
 Route::post('/flashcards', function () {
     $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, TRUE); //convert JSON into array
-    $id = \Illuminate\Support\Facades\DB::table('user')
+    $id = \Illuminate\Support\Facades\DB::table('users')
         ->where([
             'token' => $input['token']
         ])
         ->value('id');
     return new FlashcardResource(\Illuminate\Support\Facades\DB::table('flashcards')
-        ->join('thema','flashcards.fk_themaID','=','thema.id')
+        ->select([
+            'flashcards.id',
+            'flashcards.title',
+            'flashcards.content',
+            'flashcards.isFavorite',
+            'themas.description'
+        ])
+        ->join('themas','flashcards.fk_themaID','=','themas.id')
     ->where([
         'fk_userID' => $id
     ])
     ->get());
-
-    return new FlashcardResource(Flashcard::find(['fk_userID' => $id]));
 });
 
 /*Register*/
@@ -47,10 +52,36 @@ Route::post('/Login', 'AuthController@login');
 Route::post('/name', function () {
     $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true); //convert JSON into array
-    $name = \Illuminate\Support\Facades\DB::table('user')
+    $name = \Illuminate\Support\Facades\DB::table('users')
         ->where([
             'token' => $input['token']
         ])
         ->value('username');
     return json_encode(['username' => $name]);
+});
+
+/*Set favorite*/
+Route::post('/toggleFavoriteFlashcardStatus', function () {
+    $inputJSON = file_get_contents('php://input');
+    $input = json_decode($inputJSON, true); //convert JSON into array
+    header('Content-Type: application/json');
+
+    $flashcardStatus =  \Illuminate\Support\Facades\DB::table('flashcards')
+        ->join('users','flashcards.fk_userID','=','users.id')
+        ->where([
+            'token' => $input['token'],
+            'flashcards.id' => $input['flashcardId']
+        ])
+        ->value('isFavorite');
+
+    \Illuminate\Support\Facades\DB::table('flashcards')
+        ->join('users','flashcards.fk_userID','=','users.id')
+        ->where([
+            'token' => $input['token'],
+            'flashcards.id' => $input['flashcardId']
+        ])
+        ->update([
+            'isFavorite' => !$flashcardStatus
+        ]);
+    return json_encode(['newStatus' => !$flashcardStatus]);
 });

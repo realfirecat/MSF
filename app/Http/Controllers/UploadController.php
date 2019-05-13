@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UploadController extends Controller {
     function upload(){
-        $id = DB::table('user')
+        $id = DB::table('users')
             ->where([
                 'token' => $_GET['token']
             ])
@@ -79,6 +79,4 @@ END;
         $myFile = 'D:\Programme\xampp\htdocs\MSF\public\uploads\\'.$_FILES['file']['name'].'.html';
         unlink($myFile);
     }
-
-
 }
