@@ -173,12 +173,33 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" id="registerUsername">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="registerButton">Register</button>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary" id="registerButton">Register</button>
+                        </div>
+                        <div class="input-group mb-3 col-md-8">
+                            <input type="text" class="form-control" value="Token" id="copyInput" disabled>
+                            <div class="input-group-append">
+                                <button class="btn input-group-text" onclick="copy()"><i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function copy() {
+        var copyText = document.getElementById("copyInput");
+
+        copyText.select();
+        document.execCommand("copy");
+        document.getSelection().removeAllRanges();
+    }
+</script>
 
 <div id="mod-log" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
      aria-hidden="true">
