@@ -1,7 +1,7 @@
 let keytoken = 'loginToken';
 
 if(sessionStorage.getItem(keytoken) === null) {
-    window.location.href = "/MSF/public/Upload";
+    window.location.href = "/";
 }
 
 $(document).ready(function() {

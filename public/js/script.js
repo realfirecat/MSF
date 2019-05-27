@@ -105,8 +105,6 @@ $(document).ready(function() {
         })
             .done(function (msg) {
                 msg = JSON.parse(msg);
-                console.log(msg);
-                console.log(msg.token);
                 if (msg.token !== null) {
                     swal('Registered!',msg.token,'success');
                 } else {
