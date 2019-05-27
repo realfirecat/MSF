@@ -12,7 +12,7 @@
 */
 
 /*Upload site*/
-Route::get('/Upload', function () {
+Route::get('/', function () {
     return view('upload');
 });
 

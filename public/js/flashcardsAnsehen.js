@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     $('#logoutbutton').click(function() {
         sessionStorage.removeItem(keytoken);
-        window.location.href = "/MSF/public/Upload";
+        window.location.href = "/";
     });
 
     let data = {

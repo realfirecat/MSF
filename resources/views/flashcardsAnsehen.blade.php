@@ -19,7 +19,7 @@
         <a>MITSCHRIFT FLASHCARDS</a>
     </div>
     <div class="nav-right mt-4">
-        <a class="button mr-3" href="http://localhost/MSF/public/Upload">Upload</a>
+        <a class="button mr-3" href="http://localhost/">Upload</a>
         <a class="mr2 dropdown">
             <a id="username" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Username
