@@ -35,7 +35,7 @@ $(document).ready(function() {
             .done(function (msg) {
                 if (msg.valid) {
                     sessionStorage.setItem(keytoken, token);
-                    window.location.href = "/Dashboard";
+                    window.location.href = "/MSF/public/Dashboard";
                 }
                 })
             .fail(function (xhr, status, error) {

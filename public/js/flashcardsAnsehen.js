@@ -1,14 +1,14 @@
 let keytoken = 'loginToken';
 
 if(sessionStorage.getItem(keytoken) === null) {
-    window.location.href = "/";
+    window.location.href = "/MSF/public";
 }
 
 $(document).ready(function() {
 
     $('#logoutbutton').click(function() {
         sessionStorage.removeItem(keytoken);
-        window.location.href = "/";
+        window.location.href = "/MSF/public";
     });
 
     let data = {
