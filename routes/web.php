@@ -11,7 +11,6 @@
 |
 */
 
-
 /*Upload site*/
 Route::get('/Upload', function () {
     return view('upload');

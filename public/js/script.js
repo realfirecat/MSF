@@ -1,5 +1,3 @@
-"use strict";
-
 $(document).ready(function() {
 
     let keytoken = 'loginToken';
@@ -51,6 +49,7 @@ $(document).ready(function() {
 // Sending AJAX request and upload file
         function uploadData(fd, token) {
 
+
             if(token === null) {
                 return;
             }
@@ -66,7 +65,9 @@ $(document).ready(function() {
                 contentType: false,
             })
                 .done(function (msg) {
+                    console.log('test')
                     msg = JSON.parse(msg);
+                    console.log(msg);
                     if (msg.valid) {
                         swal('File uploaded!','','success');
                     } else {
@@ -103,8 +104,10 @@ $(document).ready(function() {
             contentType: false,
         })
             .done(function (msg) {
-                if (msg.valid) {
-                    swal('Registered!','','success');
+                console.log(msg);
+                console.log(msg.token);
+                if (msg.token !== null) {
+                    swal('Registered!',msg.token,'success');
                 } else {
                     swal('Error!','','error');
                 }
