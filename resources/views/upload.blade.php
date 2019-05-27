@@ -178,7 +178,7 @@
                             <button type="submit" class="btn btn-primary" id="registerButton">Register</button>
                         </div>
                         <div class="input-group mb-3 col-md-8">
-                            <input type="text" class="form-control" value="Token" id="copyInput" disabled>
+                            <input type="text" class="form-control" value="" id="copyInput" disabled>
                             <div class="input-group-append">
                                 <button class="btn input-group-text" onclick="copy()"><i class="far fa-copy"></i>
                                 </button>

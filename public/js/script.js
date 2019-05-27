@@ -116,6 +116,7 @@ $(document).ready(function() {
                 msg = JSON.parse(msg);
                 if (msg.token !== null) {
                     swal('Registered!',msg.token,'success');
+                    document.querySelector('#copyInput').value=msg.token;
                 } else {
                     swal('Error!','','error');
                 }
