@@ -20,8 +20,8 @@
         <a>MITSCHRIFT-FLASHCARDS</a>
     </div>
     <div class="nav-right mt-5">
-        <a class="mr-4" data-toggle="modal" data-target="#mod-log">LOGIN</a>
-        <a class="mr-4" data-toggle="modal" data-target="#mod-reg">REGISTER</a>
+        <a class="mr-4" data-toggle="modal" data-target="#mod-log" id="login" >LOGIN</a>
+        <a class="mr-4" data-toggle="modal" data-target="#mod-reg" id="register">REGISTER</a>
         <a class="button" href="#section4">Upload file</a>
     </div>
 </div>
@@ -178,7 +178,7 @@
                             <button type="submit" class="btn btn-primary" id="registerButton">Register</button>
                         </div>
                         <div class="input-group mb-3 col-md-8">
-                            <input type="text" class="form-control" value="test12312414234234" id="copyInput" readonly>
+                            <input type="text" class="form-control" value="" id="copyInput" disabled>
                             <div class="input-group-append">
                                 <button class="btn input-group-text" onclick="copy()"><i class="far fa-copy"></i>
                                 </button>
@@ -195,12 +195,9 @@
     function copy() {
         var copyText = document.getElementById("copyInput");
 
-        console.log(copyText);
-
         copyText.select();
         document.execCommand("copy");
         document.getSelection().removeAllRanges();
-
     }
 </script>
 

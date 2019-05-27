@@ -2,6 +2,15 @@ $(document).ready(function() {
 
     let keytoken = 'loginToken';
 
+    if (sessionStorage.getItem(keytoken) !== null) {
+        document.querySelector('#login').setAttribute('data-toggle','');
+        document.querySelector('#login').setAttribute('data-target','');
+        document.querySelector('#login').setAttribute('href','/MSF/public/Dashboard');
+        document.querySelector('#login').classList.remove('mr-4');
+        document.querySelector('#login').innerHTML='Dashboard';
+        document.querySelector('#register').innerHTML='';
+    }
+
     $(function () {
             // preventing page from redirecting
             $("html").on("dragover", function (e) {
@@ -107,6 +116,7 @@ $(document).ready(function() {
                 msg = JSON.parse(msg);
                 if (msg.token !== null) {
                     swal('Registered!',msg.token,'success');
+                    document.querySelector('#copyInput').value=msg.token;
                 } else {
                     swal('Error!','','error');
                 }

@@ -1,14 +1,14 @@
 let keytoken = 'loginToken';
 
 if(sessionStorage.getItem(keytoken) === null) {
-    window.location.href = "/";
+    window.location.href = "/MSF/public";
 }
 
 $(document).ready(function() {
 
     $('#logoutbutton').click(function() {
         sessionStorage.removeItem(keytoken);
-        window.location.href = "/";
+        window.location.href = "/MSF/public";
     });
 
     let data = {
@@ -16,6 +16,7 @@ $(document).ready(function() {
     };
 
     let allFlashcards = [];
+    let allFlashcardsSearched = [];
 
     $.ajax({
         headers: {
@@ -33,6 +34,7 @@ $(document).ready(function() {
             insertIntoContainer(json.data);
             for (let item of json.data) {
                 allFlashcards.push(item);
+                allFlashcardsSearched.push(item);
             }
         })
         .fail(function (xhr, status, error) {
@@ -61,8 +63,9 @@ $(document).ready(function() {
 
 
     $('#random-input').on('click', function (e) {
-        shuffle(allFlashcards);
-        insertIntoContainer(allFlashcards);
+        console.log(allFlashcardsSearched);
+        shuffle(allFlashcardsSearched);
+        insertIntoContainer(allFlashcardsSearched);
     });
 
     $('#searchbox').on('keyup', function (e) {
@@ -73,6 +76,7 @@ $(document).ready(function() {
                 bufferArray.push(item);
             }
         }
+        allFlashcardsSearched = bufferArray;
         insertIntoContainer(bufferArray);
     });
 
@@ -94,7 +98,7 @@ $(document).ready(function() {
             "                            <div class=\"modal-dialog modal-lg modal-dialog-centered\">\n" +
             "                                <div class=\"modal-content\">\n" +
             "                                    <div class=\"modal-header\">\n" +
-            "                                        <h5 class=\"modal-title\" id=\"ModalLongTitle\">Kategorie 1 - " + title + id +  " <i class=\"favoriteIcon favorite"+isFavorite+"\" id='"+id+"'></i></h5>\n" +
+            "                                        <h5 class=\"modal-title\" id=\"ModalLongTitle\">Kategorie 1 - " + title +  " <i class=\"favoriteIcon favorite"+isFavorite+"\" id='"+id+"'></i></h5>\n" +
             "                                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n" +
             "                                            <span aria-hidden=\"true\">&times;</span>\n" +
             "                                        </button>\n" +
